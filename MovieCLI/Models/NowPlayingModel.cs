@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MovieCLI.Models
 {
-    public class NowPlayingModel
+    public class NowPlayingModel : IMovies
     {
         [JsonProperty("id")]
         public int Id { get; set; }
