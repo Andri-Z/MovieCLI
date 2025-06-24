@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace MovieCLI.Models
 {
-    public class NowPlayingModel : IMovies
+    public class MoviesModel : IMovies
     {
         [JsonProperty("id")]
         public int Id { get; set; }
         [JsonProperty("genre_ids")]
         public int[] Genres { get; set; } = [];
         [JsonProperty("tittle")]
-        public string Tittle { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
         [JsonProperty("adult")]
         public bool Adult { get; set; }
         [JsonProperty("backdrop_path")]
@@ -23,7 +23,7 @@ namespace MovieCLI.Models
         [JsonProperty("original_language")]
         public string OriginalLanguage { get; set; } = string.Empty;
         [JsonProperty("original_title")]
-        public string OriginalTittle { get; set; } = string.Empty;
+        public string OriginalTitle { get; set; } = string.Empty;
         [JsonProperty("overview")]
         public string Overview { get; set; } = string.Empty;
         [JsonProperty("popularity")]

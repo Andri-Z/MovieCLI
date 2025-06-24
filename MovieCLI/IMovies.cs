@@ -9,10 +9,11 @@ namespace MovieCLI
 {
     public interface IMovies
     {
-        string Tittle { get; set; }
+        //string Title { get; set; }
         string Overview { get; set; }
         string OriginalLanguage { get; set; }
         double VoteAverage { get; set; }
         int VoteCount { get; set; }
+        string OriginalTitle { get; set; }
     }
 }
