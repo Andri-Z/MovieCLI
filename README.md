@@ -40,3 +40,7 @@ También permite navegar entre páginas de resultados con los comandos:
    git clone https://github.com/Andri-Z/MovieCLI.git
    cd MovieCLI
    dotnet run
+
+
+## ℹ️ Importante
+Tienes que tener una clave API de TMDB y colocarla en el archivo Privado.txt, la aplicacion de consola lo leera automaticamente y podra funcionar sin problemas.
