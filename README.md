@@ -14,21 +14,16 @@ Permite obtener listas de películas desde la línea de comandos usando los sigu
 - `top`: Películas mejor valoradas
 - `upcoming`: Próximos estrenos
 
-También permite navegar entre páginas de resultados con los comandos:
+Tambien tiene un comando para salir de la aplicacion 
 
-- `next`: Página siguiente
-- `prev`: Página anterior
-- `salir`: Salir de la aplicación
+- `exit`: Salir de la aplicación
 
 ---
 
 ## 🧩 Estructura del Proyecto
 
-- `Program.cs` – Punto de entrada de la aplicación
-- `Movies.cs` – Controla el flujo principal y paginación
-- `Get.cs` – Servicio que se encarga de hacer peticiones HTTP
-- `Messages.cs` – Encargado de mostrar mensajes en consola
-- `MoviesGeneric.cs` – Clase genérica que muestra cualquier modelo que implemente `IMovies`
+- `Program.cs` – Punto de entrada de la aplicación.
+- `Services/MoviesService.cs` – Controla el flujo principal y paginación.
 
 ---
 
@@ -40,7 +35,3 @@ También permite navegar entre páginas de resultados con los comandos:
    git clone https://github.com/Andri-Z/MovieCLI.git
    cd MovieCLI
    dotnet run
-
-
-## ℹ️ Importante
-Tienes que tener una clave API de TMDB y colocarla en el archivo Privado.txt, la aplicacion de consola lo leera automaticamente y podra funcionar sin problemas.

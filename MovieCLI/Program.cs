@@ -1,30 +1,46 @@
-﻿using MovieCLI;
+﻿using System.ComponentModel.DataAnnotations;
+using MovieCLI;
 
-Movies movies = new();
+MoviesService movies = new();
 
-var commands = new Dictionary<string, string>
-{
-    {"tmdb-app --type \"playing\"","Valido"},
-    {"tmdb-app --type \"popular\"", "Valido"},
-    {"tmdb-app --type \"top\"", "Valido"},
-    {"tmdb-app --type \"upcoming\"", "Valido"}
-};
+//Lista de comandos validos
+List<string> commands = ["tmdb-app --type \"playing\"", "tmdb-app --type \"popular\"",
+                         "tmdb-app --type \"top\"","tmdb-app --type \"upcoming\"",
+                         "exit"];
+
+
 while (true)
 {
     Console.WriteLine("Ingresar comando:");
-    string value = Console.ReadLine().Trim().ToLower();
+    string? value = Console.ReadLine();
 
-    if (commands.ContainsKey(value))
+    //Validacion de entrada de datos y validar si la lista de comandos validos contiene algun valor de la entrada.
+    if (string.IsNullOrWhiteSpace(value) || !commands.Contains(value))
     {
-        Console.Clear();
-        await movies.GetMoviesAsync(value);
+        //Mostrando comandos validos al usuario.
+        Console.WriteLine("Comando no valido, ingrese uno de estos:");
+        foreach (var item in commands)
+            Console.WriteLine(item);
     }
     else
     {
-        Console.WriteLine("Comando no valido, ingrese uno de estos:");
-        foreach (var item in commands)
+        if (value == "exit")
         {
-            Console.WriteLine(item.Key);
+            Console.WriteLine("Saliendo de la aplicacion.");
+            Environment.Exit(0);        
         }
+
+        int pageValid;
+        while (true)
+        {
+            Console.WriteLine("Page:");
+            var page = Console.ReadLine();
+
+            _ = int.TryParse(page, out pageValid);
+            break;
+        }
+        //Limpia la terminal y llama al metodo para obtener las peliculas solicitadas.
+        Console.Clear();
+        await movies.GetMoviesAsync(value,pageValid);
     }
 }
